@@ -20,3 +20,5 @@ document.querySelectorAll('[data-filter]').forEach(button => button.addEventList
   document.querySelector('#filter-status').textContent = selected === 'all' ? 'Showing all experience.' : `${count} ${count === 1 ? 'role highlights' : 'roles highlight'} ${button.textContent.toLowerCase()}. All roles remain available.`;
 }));
 document.querySelector('#year').textContent = new Date().getFullYear();
+
+document.querySelector('#hero-credentials').innerHTML = credentials.map(cert => `<a class="credential-inline" href="#credentials"><span class="credential-symbol" aria-hidden="true">${cert.accent ? '✧' : '◇'}</span><span>${escapeHTML(cert.issuer === 'GOOGLE CLOUD' ? 'Google Cloud certified' : cert.issuer === 'COMPTIA' ? 'CompTIA' : cert.issuer)}<br><strong>${escapeHTML(cert.title)}</strong></span><span aria-hidden="true">↗</span></a>`).join('');
